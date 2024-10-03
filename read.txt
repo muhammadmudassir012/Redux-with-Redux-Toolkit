@@ -1,0 +1,69 @@
+       How to create redux toolkit step by step
+
+Redux Toolkit ma sab se store banate ha iske bad Reducers then useDispatch and useSelecter
+
+(Installation)
+
+1.(npm install @reduxjs/toolkit) && (npm install react-redux) sab se pehle ye dono package
+install karne ha 
+
+(Store)
+
+2.Iske bad aik folder banana ha (redux) se then uske andar aik or folder banana ha
+(reduxStore) ke naam se usme aik file bananae ha 
+
+3.Iske bad configureStore ko import karna ha reduxtoolkit se
+
+4.Or aik store banana ( export const store = configureStore({}) )
+
+(Reducers)
+
+5.Iske bad redux wale folder ma aik or file banane ha wo bhi ap bana raha ha jese todo to
+(todoSlice) ke naam se folder banana ha iske bas same naam se aik fike banane ha
+
+6.Then createSlice ko import karna ha iske bad uske initialState define karne ha iske 
+example ha isse folder ma 
+
+7.Iske bad createSlice karna ha e.g ( const todoSice = createSlice({}) )
+
+8.create Slice ma sabse pehle Slice ka name define karna ha iske bad initialState define
+karne ha iske bad reducer define karna ha e.g
+( name: 'todo', initialState: initialState , reducers: {} ) baki eg(todoSlice.js) ma ha
+
+9.Then export karna ha slice ka reducers e.g ( export default todoSlice.reducer ) &&
+jo bhi reducers banaye ha un sab ko bhi export karne parega for e.g 
+(export const {addtodo,removeTodo} = todoSlice.actions)
+
+10.Iske bad jo hamne store banaya tha (line no 4) ma uske pehle todoReducer ko import
+karenge e.g ( import todoReducer from "../TodoSlice/todoSlice" ) then configure store 
+ke andar us reducer ko put kar denge for e.g ( reducer: { todo: todoReducer } )
+
+(useDispatch)
+
+11.redux ma changes ke liye hame useDispatch ke zaroorat hote ha matlab agar hame redux ma
+kahe bhi agar kuch bhi change karna ho to useDispatch ko use karna hoga jisme sab se pehle
+useDispatch ko import karna hoga react-redux se e.g
+( import { useDispatch } from 'react-redux' ) phir uska aik variable banana hoga for e.g
+const dispatch = useDispatch() then dispatch() or isme jo bhi change karna ho wo pass karde
+
+(useSelector)
+
+12.useSelector se ab ham isko print kar sakhte ha isme bhi sab se pehle hame useSelector ko
+import karna hoga react-redux se e.g ( import { useSelector } from 'react-redux' ) iske bad
+state ke madad se ham isko call kar sakhte ha e.g
+( const todos = useSelector(state => state.todo.todos) ) isme hamne useSelector ko aik 
+variable ma isliye rakha ha take ham isko print kar sakhe and ye (state.todo.todos) ha isme
+state ke bad jo (todo) ha wo hamne jo naam rakha tha createSlice ma wo ha and jo (todos) ha
+wo initialState ka naam ha
+
+13.Is sab ke bad aik last or bhot important kaam baki ha is ke baghair redux kaam he nhi 
+karega wo kaam ha ( main.js ) ke file ( app ) ke file ko provider ma wrap karna parega
+jisme sab se pehle provider or store ko import karna hoga e.g 
+( import { Provider } from 'react-redux'; ) &&
+( import { store } from './redux/reduxStore/reduxStore.jsx'; ) then hame app ko wrap karna 
+hoga e.g  
+( <Provider store={store}>
+    <App />
+  </Provider> )
+
+                                 THE END 
